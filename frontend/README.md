@@ -39,32 +39,49 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+# Frontend Components
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Overview
+This document describes the frontend components required for the FinOps Platform to consume the backend APIs.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Components
 
-### Code Splitting
+1. **Data Aggregation**
+   - **Component**: `DataAggregation`
+   - **Description**: Fetches and displays data aggregation from various cloud providers and on-premises datacenters.
+   - **Implementation**: `src/components/DataAggregation.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+2. **Cost Optimization**
+   - **Component**: `CostOptimization`
+   - **Description**: Fetches and displays cost optimization insights.
+   - **Implementation**: `src/components/CostOptimization.js`
 
-### Analyzing the Bundle Size
+3. **Service Reliability**
+   - **Component**: `ServiceReliability`
+   - **Description**: Fetches and displays service reliability information.
+   - **Implementation**: `src/components/ServiceReliability.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. **Automated Decision Making**
+   - **Component**: `AutomatedDecisionMaking`
+   - **Description**: Automates infrastructure decisions based on predefined rules and machine learning models.
+   - **Implementation**: `src/components/AutomatedDecisionMaking.js`
 
-### Making a Progressive Web App
+5. **Dashboard**
+   - **Component**: `Dashboard`
+   - **Description**: Fetches and displays customizable dashboards for different teams.
+   - **Implementation**: `src/components/Dashboard.js`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+6. **Alerts**
+   - **Component**: `Alerts`
+   - **Description**: Fetches and displays alerts and notifications for cost anomalies, performance issues, and optimization opportunities. Allows creating new alerts.
+   - **Implementation**: `src/components/Alerts.js`
 
-### Advanced Configuration
+## API Service
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The API service handles requests to the backend APIs.
 
-### Deployment
+- **File**: `src/api/apiService.js`
+- **Description**: Contains functions to make API requests to the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Additional Information
+For more details on the implementation, refer to the respective component files in the `src/components` folder.

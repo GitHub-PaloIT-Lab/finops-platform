@@ -1,0 +1,105 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: FinOps Platform Infrastructure
+
+Resources:
+  # S3 Bucket for Frontend
+  FrontendBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: finops-frontend-bucket
+
+  # IAM Role for EC2 Instances
+  EC2InstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      Path: /
+
+  # Instance Profile for EC2 Instances
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Path: /
+      Roles:
+        - Ref: EC2InstanceRole
+
+  # Security Group for EC2 Instances
+  EC2SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow HTTP and SSH access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  # EC2 Instance for Backend
+  BackendInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      SecurityGroups:
+        - Ref: EC2SecurityGroup
+      IamInstanceProfile: 
+        Ref: EC2InstanceProfile
+      ImageId: ami-0c55b159cbfafe1f0 # Amazon Linux 2 AMI
+      KeyName: my-key-pair
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          yum update -y
+          yum install -y nodejs npm git
+          git clone https://github.com/your-repo/finops-platform.git
+          cd finops-platform
+          npm install
+          npm start
+
+  # RDS Instance for PostgreSQL
+  RDSInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceClass: db.t2.micro
+      Engine: postgres
+      MasterUsername: admin
+      MasterUserPassword: password
+      AllocatedStorage: 20
+      DBName: finopsdb
+
+  # S3 Bucket for Data Storage
+  DataStorageBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: finops-data-storage
+
+  # CloudFront Distribution for Frontend
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+          - DomainName: !GetAtt FrontendBucket.DomainName
+            Id: S3FrontendOrigin
+            S3OriginConfig: {}
+        Enabled: true
+        DefaultCacheBehavior:
+          TargetOriginId: S3FrontendOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
