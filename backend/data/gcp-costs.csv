@@ -1,0 +1,13 @@
+Date,Project ID,Service,Resource ID,Usage,Cost,Region
+2023-11-28,project-a,Compute Engine,instance-1,100 CPU-hours,10.00,us-central1
+2023-11-28,project-a,Cloud Storage,bucket-1,100 GB-months,0.01,us-east1
+2023-11-28,project-b,BigQuery,dataset-1,500 GB,5.00,us-west1
+2023-11-28,project-b,Cloud Functions,function-1,200 invocations,0.20,us-central1
+2023-11-28,project-c,Compute Engine,instance-2,150 CPU-hours,15.00,us-east1
+2023-11-28,project-c,Cloud Storage,bucket-2,200 GB-months,0.02,us-central1
+2023-11-28,project-d,Cloud Pub/Sub,topic-1,1000 messages,0.10,us-west1
+2023-11-28,project-d,Cloud SQL,instance-3,50 hours,25.00,us-central1
+2023-11-28,project-e,Compute Engine,instance-4,200 CPU-hours,20.00,us-east1
+2023-11-28,project-e,Cloud Storage,bucket-3,300 GB-months,0.03,us-west1
+2023-11-28,project-f,BigQuery,dataset-2,600 GB,6.00,us-central1
+2023-11-28,project-f,Cloud Functions,function-2,300 invocations,0.30,us-east1

@@ -1,0 +1,19 @@
+
+@startuml
+!define RECTANGLE class
+
+RECTANGLE Frontend {
+  React Application
+}
+
+RECTANGLE Backend {
+  Node.js Services
+}
+
+RECTANGLE Infrastructure {
+  Terraform Managed Resources
+}
+
+Frontend --> Backend : API Calls
+Backend --> Infrastructure : Resource Management
+@enduml

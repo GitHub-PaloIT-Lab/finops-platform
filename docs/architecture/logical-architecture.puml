@@ -1,0 +1,43 @@
+@startuml
+title Logical Architecture Diagram
+
+package "FinOps Platform" {
+    [Frontend] -down-> [Backend]
+    [Backend] -down-> [Database]
+    [Backend] -down-> [Data Storage]
+    [Backend] -down-> [Data Processing]
+    [Backend] -down-> [Cloud Providers]
+}
+
+package "Frontend" {
+    [React Application]
+}
+
+package "Backend" {
+    [Node.js Application]
+    [API Endpoints]
+}
+
+package "Database" {
+    [PostgreSQL]
+    [MongoDB]
+}
+
+package "Data Storage" {
+    [AWS S3]
+    [Azure Blob Storage]
+    [Google Cloud Storage]
+}
+
+package "Data Processing" {
+    [Apache Kafka]
+    [Apache Spark]
+}
+
+package "Cloud Providers" {
+    [AWS]
+    [Azure]
+    [Google Cloud Platform]
+}
+
+@enduml

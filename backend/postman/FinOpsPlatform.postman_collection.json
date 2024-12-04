@@ -1,0 +1,188 @@
+{
+  "info": {
+    "name": "FinOps Platform",
+    "_postman_id": "12345678-1234-1234-1234-123456789012",
+    "description": "Postman collection to test FinOps Platform endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Data Aggregation",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/data/aggregate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "data", "aggregate"],
+          "query": [
+            {
+              "key": "startDate",
+              "value": ""
+            },
+            {
+              "key": "endDate",
+              "value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cost Optimization",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/cost/optimization",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "cost", "optimization"],
+          "query": [
+            {
+              "key": "startDate",
+              "value": ""
+            },
+            {
+              "key": "endDate",
+              "value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Service Reliability",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/service/reliability",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "service", "reliability"],
+          "query": [
+            {
+              "key": "serviceId",
+              "value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Automated Decision Making",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"rules\": \"\",\n  \"modelId\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/decision/automate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "decision", "automate"]
+        }
+      }
+    },
+    {
+      "name": "Dashboard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/dashboard",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "dashboard"],
+          "query": [
+            {
+              "key": "teamId",
+              "value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Alerts",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/alerts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "alerts"],
+          "query": [
+            {
+              "key": "type",
+              "value": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Alert",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"alert\": \"\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/alerts",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "alerts"]
+        }
+      }
+    },
+    {
+      "name": "Cloud Costs",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/cloud-costs",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "cloud-costs"],
+          "query": [
+            {
+              "key": "provider",
+              "value": ""
+            },
+            {
+              "key": "project",
+              "value": ""
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

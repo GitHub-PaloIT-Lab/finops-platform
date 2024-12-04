@@ -4,24 +4,34 @@ import { getAlerts, createAlert } from '../api/apiService';
 const Alerts = () => {
   const [alerts, setAlerts] = useState([]);
   const [newAlert, setNewAlert] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchAlerts = async () => {
-      const result = await getAlerts();
-      setAlerts(result);
+      try {
+        const result = await getAlerts();
+        setAlerts(result);
+      } catch (err) {
+        setError('Failed to fetch alerts');
+      }
     };
     fetchAlerts();
   }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await createAlert(newAlert);
-    setAlerts([...alerts, result]);
+    try {
+      const result = await createAlert(newAlert);
+      setAlerts([...alerts, result]);
+    } catch (err) {
+      setError('Failed to create alert');
+    }
   };
 
   return (
     <div>
       <h2>Alerts</h2>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
           <label>New Alert:</label>

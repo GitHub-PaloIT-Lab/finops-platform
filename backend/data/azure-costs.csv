@@ -1,0 +1,17 @@
+Date,Subscription ID,Resource Group,Resource ID,Metered Quantity,Cost,Region
+2023-11-28,sub-12345,rg-prod,vm-1,100 CPU-hours,10.00,East US
+2023-11-28,sub-12345,rg-dev,storage-1,100 GB-months,0.01,West US
+2023-11-28,sub-67890,rg-prod,vm-2,200 CPU-hours,20.00,East US
+2023-11-28,sub-67890,rg-dev,storage-2,200 GB-months,0.02,West US
+2023-11-28,sub-54321,rg-prod,vm-3,150 CPU-hours,15.00,Central US
+2023-11-28,sub-54321,rg-dev,storage-3,150 GB-months,0.015,North Europe
+2023-11-28,sub-98765,rg-prod,vm-4,250 CPU-hours,25.00,East Asia
+2023-11-28,sub-98765,rg-dev,storage-4,250 GB-months,0.025,Australia East
+2023-11-28,sub-11223,rg-prod,vm-5,300 CPU-hours,30.00,South India
+2023-11-28,sub-11223,rg-dev,storage-5,300 GB-months,0.03,Japan East
+2023-11-28,sub-33445,rg-prod,vm-6,350 CPU-hours,35.00,UK South
+2023-11-28,sub-33445,rg-dev,storage-6,350 GB-months,0.035,Canada Central
+2023-11-28,sub-55667,rg-prod,vm-7,400 CPU-hours,40.00,West Europe
+2023-11-28,sub-55667,rg-dev,storage-7,400 GB-months,0.04,South Africa North
+2023-11-28,sub-77889,rg-prod,vm-8,450 CPU-hours,45.00,Korea Central
+2023-11-28,sub-77889,rg-dev,storage-8,450 GB-months,0.045,Brazil South
