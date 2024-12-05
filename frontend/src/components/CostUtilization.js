@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const CostUtilization = ({ cloudProvider }) => {
+const CostUtilization = ({ cloudProvider, project }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,8 +9,8 @@ const CostUtilization = ({ cloudProvider }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/cloud-costs`, {
-          params: { provider: cloudProvider }
+        const response = await axios.get('http://localhost:3000/api/cloud-costs', {
+          params: { provider: cloudProvider, project }
         });
         setData(response.data);
       } catch (err) {
@@ -21,30 +21,15 @@ const CostUtilization = ({ cloudProvider }) => {
     };
 
     fetchData();
-  }, [cloudProvider]);
+  }, [cloudProvider, project]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error loading data: {error.message}</p>;
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
-    <div className="CostUtilization">
-      <h2>Cost Utilization for {cloudProvider}</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Project/Resource</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              <td>{item.name}</td>
-              <td>{item.cost}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div>
+      <h2>Cost Utilization</h2>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 };
